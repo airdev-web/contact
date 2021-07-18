@@ -1,14 +1,14 @@
-#Airdev/contact
+# Airdev/contact
 A package that quickly provide contact form & email send features.
 
 It's only working with Airdev web base project.
 
-##Usage
-###Installation
+## Usage
+### Installation
 ```shell
 composer require airdev/contact
 ```
-###Publish configuration file
+### Publish configuration file
 ```shell
 php artisan vendor:publish --tag=airdev-contact-config
 ```
@@ -44,14 +44,14 @@ return [
 ];
 ```
 
-###Call the blade component into your view
+### Call the blade component into your view
 ```html
 <x-airdev-contact::form></x-airdev-contact::form>
 ```
-###Routing
+### Routing
 Be sure that the route ``POST /contact`` is free to use.
 
-####You can edit the default fields and the sending button
+#### You can edit the default fields and the sending button
 ```html
 
 <x-airdev-contact::form>
@@ -83,7 +83,7 @@ Be sure that the route ``POST /contact`` is free to use.
     </x-slot>
 </x-airdev-contact::form>
 ```
-####You can add custom classes to ``<form>`` and ``<button>``
+#### You can add custom classes to ``<form>`` and ``<button>``
 You'll find these settings into the published config file ``config/contact.php``
 ```injectablephp
 /* config/contact.php */
@@ -95,9 +95,9 @@ return [
     'form-class' => ''
 ];
 ```
-##Optional customization 
+## Optional customization 
 These other customization are not required for the good work of this library.
-###Publish mail view
+### Publish mail view
 If you want to edit the mail that is sent, you can publish the view file. This is often the case when you have more fields than the basic ones in the library. 
 ```shell
 php artisan vendor:publish --tag=airdev-contact-mail-view
