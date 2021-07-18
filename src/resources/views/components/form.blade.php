@@ -49,7 +49,7 @@
         @endif
     </button>
 
-    <button id="submit-button" type="submit" class="d-none">submit</button>
+    <button id="submit-button" type="submit" style="display: none">submit</button>
 </form>
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <script>
