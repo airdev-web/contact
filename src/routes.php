@@ -20,6 +20,7 @@ Route::post('contact', function() {
         request()->session()->flash('confirm_mail', true);
     }
 
-    return redirect(route('home'));
 
-})->name('postMailContact');
+    return redirect(config('contact.redirect', '/'));
+
+})->middleware('web')->name('postMailContact');

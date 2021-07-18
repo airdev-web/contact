@@ -2,10 +2,7 @@
 
 namespace Airdev\Contact;
 
-
-use Airdev\Blog\App\Nova\PostResource;
-use Airdev\Blog\App\Nova\UserResource;
-use Airdev\Blog\App\Nova\WebMediaResource;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Nova\Nova;
 
@@ -28,10 +25,18 @@ class AirdevContactProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->loadViewsFrom(__DIR__ . '/resources/views', 'contact');
         $this->loadRoutesFrom(__DIR__.'/routes.php');
-        $this->loadViewsFrom(__DIR__.'/views', 'contact');
+
+        Blade::componentNamespace('Airdev\\Contact\\App\\View\\Components', 'airdev-contact');
+
+        // php artisan vendor:publish --tag=airdev-contact-config
         $this->publishes([
             __DIR__.'/config/contact.php' => config_path('contact.php'),
-        ]);
+        ], 'airdev-contact-config');
+
+        $this->publishes([
+            __DIR__.'/resources/views/mails' => resource_path('views/vendor/airdev/contact'),
+        ], 'airdev-contact-mail-view');
     }
 }

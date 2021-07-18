@@ -4,8 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Alerts e.g. approaching your limit</title>
-    <style type="text/css">
+    <style>
         img {
             max-width: 100%;
         }
@@ -141,6 +140,7 @@
                 </table>
                 <div class="footer"
                      style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; width: 100%; clear: both; color: #999; margin: 0; padding: 20px;">
+                    <p>Vous pouvez répondre au mail du client en <a href="mailto:{{ $data->email }}">cliquant ici</a> ou en répondant directement avec votre boite mail.</p>
                 </div>
             </div>
         </td>

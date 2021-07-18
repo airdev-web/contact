@@ -19,8 +19,8 @@ class ContactMail extends Mailable
 
     public function build()
     {
-        return $this->from('info@airdev.be')
+        return $this->from($this->data->email)
             ->subject(config('contact.mail_subject', 'Sujet non défini'))
-            ->view('contact::mail');
+            ->view('contact::mails.mail');
     }
 }
