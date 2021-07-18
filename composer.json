@@ -20,7 +20,7 @@
     "repositories": [
         {
             "type" : "composer",
-            "url"  : "https://packagist.org/"
+            "url"  : "https://packagist.hesse.im"
         }
     ],
     "minimum-stability": "stable"
