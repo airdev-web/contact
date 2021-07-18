@@ -8,6 +8,15 @@ It's only working with Airdev web base project.
 ```shell
 composer require airdev/contact
 ```
+
+Next, add it to the Laravel's package providers in ``config/app.php``
+```php
+/*
+ * Package Service Providers...
+ */
+Airdev\Contact\AirdevContactProvider::class,
+```
+
 ### Publish configuration file
 ```shell
 php artisan vendor:publish --tag=airdev-contact-config
