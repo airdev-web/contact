@@ -1,5 +1,6 @@
 {
     "name": "airdev/contact",
+    "description": "A package that quickly provide contact form & email send features.",
     "license": "MIT",
     "autoload": {
         "psr-4": {
