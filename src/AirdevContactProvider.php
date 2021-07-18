@@ -29,6 +29,7 @@ class AirdevContactProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/routes.php');
 
         Blade::componentNamespace('Airdev\\Contact\\App\\View\\Components', 'airdev-contact');
+        //TODO: Create a component explaining that the email has been sent
 
         // php artisan vendor:publish --tag=airdev-contact-config
         $this->publishes([

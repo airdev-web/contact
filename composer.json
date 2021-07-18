@@ -11,5 +11,6 @@
             "email": "info@airdev.be"
         }
     ],
-    "require": {}
+    "require": {},
+    "minimum-stability": "stable"
 }
