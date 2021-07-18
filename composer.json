@@ -1,0 +1,15 @@
+{
+    "name": "airdev/contact",
+    "autoload": {
+        "psr-4": {
+            "Airdev\\Contact\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Romain Vause",
+            "email": "info@airdev.be"
+        }
+    ],
+    "require": {}
+}
