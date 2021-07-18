@@ -17,6 +17,9 @@ Next, add it to the Laravel's package providers in ``config/app.php``
 Airdev\Contact\AirdevContactProvider::class,
 ```
 
+#### Routing
+Be sure that the route ``POST /contact`` is free to use.
+
 ### Publish configuration file
 ```shell
 php artisan vendor:publish --tag=airdev-contact-config
@@ -57,8 +60,6 @@ return [
 ```blade
 <x-airdev-contact::form></x-airdev-contact::form>
 ```
-### Routing
-Be sure that the route ``POST /contact`` is free to use.
 
 #### You can edit the default fields and the sending button
 ```blade
