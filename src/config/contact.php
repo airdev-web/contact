@@ -21,7 +21,7 @@ return [
     'mail_subject' => 'Contact du site ' . env('APP_NAME', ''),
 
     // Redirection after sended the mail
-    'redirect' => route('contact'),
+    'redirect' => '/',
 
     // Class to apply on the submit button (by default, Bootstrap 5 btn classes are used)
     'submit-btn-class' => 'btn btn-primary',
