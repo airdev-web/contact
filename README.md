@@ -13,7 +13,7 @@ composer require airdev/contact
 php artisan vendor:publish --tag=airdev-contact-config
 ```
 You should next update some configuration in ``config/contact.php`` :
-```injectablephp
+```php
 /* config/contact.php */
 
 return [
@@ -45,15 +45,14 @@ return [
 ```
 
 ### Call the blade component into your view
-```html
+```blade
 <x-airdev-contact::form></x-airdev-contact::form>
 ```
 ### Routing
 Be sure that the route ``POST /contact`` is free to use.
 
 #### You can edit the default fields and the sending button
-```html
-
+```blade
 <x-airdev-contact::form>
     <!--  Editing the fields  -->
     <div>
@@ -85,7 +84,7 @@ Be sure that the route ``POST /contact`` is free to use.
 ```
 #### You can add custom classes to ``<form>`` and ``<button>``
 You'll find these settings into the published config file ``config/contact.php``
-```injectablephp
+```php
 /* config/contact.php */
 
 return [
