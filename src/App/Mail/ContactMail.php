@@ -11,10 +11,12 @@ class ContactMail extends Mailable
     use Queueable, SerializesModels;
 
     public $data;
+    public $mail_config;
 
-    public function __construct($request)
+    public function __construct($request, $mail_config)
     {
         $this->data = $request;
+        $this->mail_config = $mail_config;
     }
 
     public function build()
@@ -22,7 +24,7 @@ class ContactMail extends Mailable
         return $this
             ->from(env('MAIL_FROM_ADDRESS', 'info@airdev.be'), env('MAIL_FROM_NAME', 'Romain Vause'))
             ->replyTo($this->data->email)
-            ->subject(config('contact.mail_subject', 'Sujet non défini'))
+            ->subject($this->mail_config['mail_subject'])
             ->view('contact::mails.mail');
     }
 }

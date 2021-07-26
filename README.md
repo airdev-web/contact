@@ -17,8 +17,10 @@ Next, add it to the Laravel's package providers in ``config/app.php``
 Airdev\Contact\AirdevContactProvider::class,
 ```
 
-#### Routing
-Be sure that the route ``POST /contact`` is free to use.
+#### Add Google Recaptcha api to your app.blade.php
+```html
+<script src="https://www.google.com/recaptcha/api.js"></script>
+```
 
 ### Publish configuration file
 ```shell
@@ -36,29 +38,48 @@ return [
 
     'debug' => false,
 
-    // The address that should receive the sent mail
-    'mail_to' => env('MAIL_TO', ''),
+    // Class to apply on the submit button (by default, Bootstrap 5 btn classes are used)
+    'submit-btn-class' => 'btn btn-primary',
+    // Class to apply on <form>
+    'form-class' => '',
 
     // The google captcha keys
     'captcha_secret' => env('CAPTCHA_SECRET', ''),
     'captcha_public' => env('CAPTCHA_PUBLIC', ''),
 
-    // Subject of the mail
-    'mail_subject' => 'Contact du site ' . env('APP_NAME', ''),
+    'mails' => [
+        'contact' => [ // it will generate post route 'contact_post'
+            // The address that should receive the sent mail
+            'mail_to' => env('MAIL_TO', ''),
 
-    // Redirection after sended the mail
-    'redirect' => route('contact'),
+            // Subject of the mail
+            'mail_subject' => 'Contact du site ' . env('APP_NAME', ''),
 
-    // Class to apply on the submit button (by default, Bootstrap 5 btn classes are used)
-    'submit-btn-class' => 'btn btn-primary',
-    // Class to apply on <form>
-    'form-class' => ''
+            // Redirection after sended the mail
+            'redirect' => '/',
+
+            // The mail view to use (you can publish default view to base on and copy it into your resource folder
+            'view' => 'mails.mail',
+        ],
+
+        /*
+         * Just delete this if you have only one form
+         */
+        'depannage' => [ // it will generate post route 'depannage_post'
+            'mail_to' => env('MAIL_TO', ''),
+            'mail_subject' => 'Demande de dépannage du site ' . env('APP_NAME', ''),
+            'redirect' => '/',
+            'view' => 'mails.depannage',
+        ]
+    ],
 ];
 ```
 
 ### Call the blade component into your view
+And specify the route name you defined into the `config/contact.php`
 ```blade
-<x-airdev-contact::form></x-airdev-contact::form>
+<x-airdev-contact::form routeName="contact"></x-airdev-contact::form>
+<x-airdev-contact::form routeName="depannage"></x-airdev-contact::form>
 ```
 
 #### You can edit the default fields and the sending button
