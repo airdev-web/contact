@@ -4,8 +4,6 @@
     <form action="{{ route($route_name.'_post') }}" method="post" class="{{ config('contact.form-class', '') }}">
         {{ csrf_field() }}
 
-        {{ $route_name }}
-
         <input type="hidden" id="captcha_token-input-{{ $route_name }}" name="captcha_token" value="">
 
         @if ($slot->isEmpty())
