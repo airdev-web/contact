@@ -35,7 +35,7 @@
                 data-sitekey="{{ config('contact.captcha_public') }}"
                 data-callback='onSubmit_{{ $route_name }}'
                 data-action='submit'
-                id="send-button">
+                id="send-button-{{ $route_name }}">
             @if (!isset($button_slot) || !$button_slot)
                 Envoyer
             @else
