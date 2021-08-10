@@ -25,6 +25,6 @@ class ContactMail extends Mailable
             ->from(env('MAIL_FROM_ADDRESS', 'info@airdev.be'), env('MAIL_FROM_NAME', 'Romain Vause'))
             ->replyTo($this->data->email)
             ->subject($this->mail_config['mail_subject'])
-            ->view('contact::mails.mail');
+            ->view($this->mail_config['view']);
     }
 }
